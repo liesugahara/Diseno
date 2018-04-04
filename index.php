@@ -1,6 +1,6 @@
 <html>
 <!-- COMIENZO DEL CODIGO -->
-<title>Web Position</title>
+<title>Test</title>
 <link type="text/css" rel="stylesheet" href="estilos-div.css" />
 <meta charset="utf-8">
 	
