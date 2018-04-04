@@ -17,7 +17,7 @@
 						$db = mysqli_select_db( $conexion, $basededatos ) or die ( "Upps! Pues va a ser que no se ha podido conectar a la base de datos" );
 						// establecer y realizar consulta. guardamos en variable.
 						$consulta = "SELECT * FROM vehicle_info order by id desc limit 1";
-						$resultado = mysqli_query( $conexion, $consulta ) or die ( " consulta a la base de datos");
+						$resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
 						
 						// Motrar el resultado de los registro de la base de datos
 						// Encabezado de la tabla
