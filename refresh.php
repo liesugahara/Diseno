@@ -5,10 +5,10 @@
 						// Ejemplo realizado por Oscar Abad Folgueira: http://www.oscarabadfolgueira.com y https://www.dinapyme.com
 						
 						// Datos de la base de datos
-						$usuario = "ednp";
-						$password = "Diseno2018";
-						$servidor = "syrus.cf58lmtunvyx.us-east-2.rds.amazonaws.com:3306";
-						$basededatos = "syrusR";
+						$usuario = "liesugahara";
+						$password = "Lccjhg1995";
+						$servidor = "dbtest.cakorcerkah4.us-east-2.rds.amazonaws.com:3306";
+						$basededatos = "Test";
 						
 						// creación de la conexión a la base de datos con mysql_connect()
 						$conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos");
