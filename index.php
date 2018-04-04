@@ -114,7 +114,7 @@
 				
 		},
 		error: function() {
-			console.log('Error: ' + obj_que);
+			console.log('Error: ' + obj_que1);
 		}
 	});
 	//TIEMPO DE ACTUALIZACIÓN DEL MARCADOR: 2 SEGUNDOS
@@ -146,7 +146,7 @@
 
 			},
 			error: function() {
-			console.log('Error: ' + obj_que);
+			console.log('Error: ' + obj_que1);
 			}
 		});
 	},10000);
