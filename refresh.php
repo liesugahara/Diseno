@@ -7,7 +7,7 @@
 						// Datos de la base de datos
 						$usuario = "liesugahara";
 						$password = "Lccjhg1995";
-						$servidor = "dbtest.cakorcerkah4.us-east-2.rds.amazonaws.com:3306";
+						$servidor = "mydb.cakorcerkah4.us-east-2.rds.amazonaws.com:3306";
 						$basededatos = "Test";
 						
 						// creación de la conexión a la base de datos con mysql_connect()
