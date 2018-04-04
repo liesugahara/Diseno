@@ -307,6 +307,3 @@ function buscar(){
 	}
 </style>
 </html>
-	
-index.php
-Mostrando index.php.
