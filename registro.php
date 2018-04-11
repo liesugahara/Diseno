@@ -4,6 +4,6 @@ $lat = $_GET['latitud'];
 $lon = $_GET['longitud'];
 $date = $_GET['fecha_hora'];
 
-ejecutarSQLCommand("UPDATE vehicle_info SET latitud= '$lat',longitud='$lon',fecha_hora='$date';");
+ejecutarSQLCommand("INSERT INTO vehicle_info (latitud,longitud,fecha_hora) VALUES('$lat','$lon','$date')");
 
 ?>
