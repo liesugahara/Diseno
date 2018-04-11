@@ -144,7 +144,7 @@
 <div class = "encabezado"  >
 <img src = "un.png" align="left" width = "60px" heigt="60px">
 <!-- TITULO PRINCIPAL-->
-<center><h1 style = "font: oblique bold 120% cursive;font-size:30px"> SOLUTIONS
+<center><h1 style = "font: oblique bold 120% cursive;font-size:30px">DYNAMIC SOLUTIONS
 <small>Telemetry</small></h1></center>
 </div>		
 </head>
