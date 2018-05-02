@@ -21,6 +21,7 @@
 	var mark;
 	var circle;
 	var coordinates = [];
+	var coordinates1 = [];
 	var markersArray = [];
 	
 	// FUNCIÓN QUE DESPLAZA EL MARCADOR CUANDO RECIBE LAS NUEVAS COORDENADAS
@@ -92,8 +93,72 @@
 			console.log('Error: ' + obj_que);
 		}
 	});
+	
+	
+	
+	
 	//TIEMPO DE ACTUALIZACIÓN DEL MARCADOR: 2 SEGUNDOS
 	},2000);
+	
+	setInterval(function reload_map1(){
+		<!--NUEVO AJAX PARA POSICIONAMIENTO DE SEGUNDO VEHICULO-->
+	$.ajax({
+		url: 'location2.php',
+		dataType: "json",
+		success: function (data2){
+			//EXTRACCIÓN DE VALORES DEL OBJETO DE TIPO JSON IMPORTADO DE LOCATION.PHP	
+			var obj_que1 =	jQuery.parseJSON(JSON.stringify(data2));
+			$(jQuery.parseJSON(JSON.stringify(data2))).each(function() {
+			//NUEVA LATITUD Y LONGITUD
+			
+			var LATITUDE = this.latitud;
+			var LONGITUDE = this.longitud;
+			var time = this.fecha_hora;
+			var div_vehicle = document.getElementById("vehicle2")
+			var imp = LATITUDE + "," + LONGITUDE + "," + time;
+			document.getElementById('vehicle2').innerHTML=imp;
+			console.log(LATITUDE,LONGITUDE);
+			
+			mycord1 = new google.maps.LatLng(LATITUDE,LONGITUDE)
+			
+			coordinates1.push(mycord1);
+			
+			var line1 = new google.maps.Polyline({
+				path: coordinates,
+				geodesic: true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+			line1.setPath(coordinates);
+			line1.setMap(map);
+			//CONDICIONAL POR MEDIO DEL CUAL SE AGREGA UN MARCADOR;			
+			if (mark != null){									
+				mark.setPosition(new google.maps.LatLng(LATITUDE, LONGITUDE));
+				/* moveToLocation(parseFloat(LATITUDE),parseFloat(LONGITUDE));	 */ 
+			}else{
+					mark = new google.maps.Marker({
+					position: new google.maps.LatLng(LATITUDE, LONGITUDE),
+					icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+					map: map,
+					draggable: false, 
+					animation: google.maps.Animation.DROP
+					});
+					/* moveToLocation(parseFloat(LATITUDE),parseFloat(LONGITUDE)); */
+				}		
+			});
+			
+			
+			
+				
+		},
+		error: function() {
+			console.log('Error: ' + obj_que1);
+		}
+		
+	})
+	<!--NUEVO AJAX-->
+	},5000);
 	//FUNCIÓN QUE AGREGA EL MARCADOR
 	setInterval(function Historico_pos(){
 		
@@ -126,8 +191,7 @@
 		});
 	},10000);
 	
-	
-	
+
 	function addMarker(latLng, map) {
 		marker = new google.maps.Marker({
 		position: latLng,
@@ -152,16 +216,26 @@
 <body>
 	<center><fieldset style="width:30%;color:black">
 		<!--DIV DONDE SE MUESTRA LA INFORMACIÓN LATITUD,LONGITUD,HORA-->
-		<legend style = "background:#BDBDBD;border:2px solid gray"><b>Information</b></legend>
+		<legend style = "background:#BDBDBD;border:2px solid gray"><b>Information Vehicle1</b></legend>
 		<div id="contenido" style = "background:#BDBDBD;border:2px solid gray ">			
 		</div>	
+		
+		</fieldset> 
+		<fieldset style="width:30%;color:black">
+		<!--DIV DONDE SE MUESTRA LA INFORMACIÓN LATITUD,LONGITUD,HORA-->
+		<legend style = "background:#BDBDBD;border:2px solid gray"><b>Information vehicle2</b></legend>
+		<div id="vehicle2" style = "background:#BDBDBD;border:2px solid gray ">			
+		</div>	
+		
 		</fieldset> 
 		<div style = "float:left">
 		<!-- <h1 style = "color:black;font: oblique bold 120% cursive;font-size:30px;background:#BDBDBD">Menú</h1> -->
-		<a href = "historico.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical</a>
+		<a href = "historico.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical 1</a>
+		<a href = "historico2.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical 2</a>
 		</div>
 		</center>
 	<!--TITULO DEL MAPA	-->
+	
 	<center><h1 style = "color:black;font: oblique bold 120% cursive;font-size:20px"> Real-Time Tracking </h1></center>
 
 
