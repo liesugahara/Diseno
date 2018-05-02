@@ -52,6 +52,7 @@
 		 circle = new google.maps.Circle({
 			map: map1,
 			clickable: false,
+			editable: true,
 			draggable:true,
 			// metres
 			radius: 80,
