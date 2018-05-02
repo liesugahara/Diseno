@@ -85,7 +85,7 @@
 		
 		textoBusqueda = inputDate1 + ' ' + inputTime1;
 		textoBusqueda2 = inputDate2 + ' ' + inputTime2;
-		
+		console.log(textoBusqueda+" /"+textoBusqueda2);
 		if((inputDate1 == '') && (inputTime1 == '') && (inputDate2) && (inputTime2) ){
 			textoBusqueda = '';
 			textoBusqueda2 = '';
