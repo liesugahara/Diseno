@@ -11,9 +11,6 @@
 	$info = "";
 	$info1 = "";
 
-	
-	
-					
 	// creación de la conexión a la base de datos con mysql_connect()
 	$conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos");
 						
@@ -43,7 +40,7 @@
 	
 	
 	
-	
+	//Return en tipo JSON a historico.php
 	echo $mensaje.json_encode($data);
 	
 
