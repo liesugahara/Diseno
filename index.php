@@ -10,7 +10,6 @@
 <?php 
 	ob_start();
 	include 'refresh.php';
-	
 	ob_clean();
 ?>  	
 	
@@ -23,7 +22,6 @@
 	var coordinates = [];
 	var coordinates1 = [];
 	var markersArray = [];
-	
 	// FUNCIÓN QUE DESPLAZA EL MARCADOR CUANDO RECIBE LAS NUEVAS COORDENADAS
 	 /* function moveToLocation(lat, lng){
 		var center = new google.maps.LatLng(lat, lng);
@@ -99,7 +97,6 @@
 	
 	//TIEMPO DE ACTUALIZACIÓN DEL MARCADOR: 2 SEGUNDOS
 	},2000);
-	
 	setInterval(function reload_map1(){
 		<!--NUEVO AJAX PARA POSICIONAMIENTO DE SEGUNDO VEHICULO-->
 	$.ajax({
@@ -110,27 +107,22 @@
 			var obj_que1 =	jQuery.parseJSON(JSON.stringify(data2));
 			$(jQuery.parseJSON(JSON.stringify(data2))).each(function() {
 			//NUEVA LATITUD Y LONGITUD
-			
 			var LATITUDE = this.latitud;
 			var LONGITUDE = this.longitud;
 			var time = this.fecha_hora;
 			var div_vehicle = document.getElementById("vehicle2")
-			var imp = LATITUDE + "," + LONGITUDE + "," + time;
+			var imp = LATITUDE + "  " + LONGITUDE + "  " + time;
 			document.getElementById('vehicle2').innerHTML=imp;
-			console.log(LATITUDE,LONGITUDE);
-			
-			mycord1 = new google.maps.LatLng(LATITUDE,LONGITUDE)
-			
-			coordinates1.push(mycord1);
-			
+			mycord1 = new google.maps.LatLng(LATITUDE,LONGITUDE)			
+			coordinates1.push(mycord1);	
 			var line1 = new google.maps.Polyline({
 				path: coordinates,
 				geodesic: true,
-				strokeColor: '#FF0000',
+				strokeColor: '#0BF607',
 				strokeOpacity: 1.0,
 				strokeWeight: 2
 			});
-			line1.setPath(coordinates);
+			line1.setPath(coordinates1);
 			line1.setMap(map);
 			//CONDICIONAL POR MEDIO DEL CUAL SE AGREGA UN MARCADOR;			
 			if (mark != null){									
@@ -147,10 +139,6 @@
 					/* moveToLocation(parseFloat(LATITUDE),parseFloat(LONGITUDE)); */
 				}		
 			});
-			
-			
-			
-				
 		},
 		error: function() {
 			console.log('Error: ' + obj_que1);
@@ -190,13 +178,12 @@
 			}
 		});
 	},10000);
-	
-
 	function addMarker(latLng, map) {
 		marker = new google.maps.Marker({
 		position: latLng,
 		map: map,
 		draggable: false, 
+		icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
 		animation: google.maps.Animation.DROP
 		});
 		return marker;
@@ -230,8 +217,8 @@
 		</fieldset> 
 		<div style = "float:left">
 		<!-- <h1 style = "color:black;font: oblique bold 120% cursive;font-size:30px;background:#BDBDBD">Menú</h1> -->
-		<a href = "historico.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical 1</a>
-		<a href = "historico2.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical 2</a>
+		<a href = "historico.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical</a>
+		<!--- <a href = "historico2.php" style = "color:black;font: oblique  120% cursive;font-size:13px" >Historical 2</a> --->
 		</div>
 		</center>
 	<!--TITULO DEL MAPA	-->
