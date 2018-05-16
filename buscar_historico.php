@@ -1,9 +1,9 @@
 <?php 
 
-	$usuario = "liesugahara";
-	$password = "Lccjhg1995";
-	$servidor = "mydb.cakorcerkah4.us-east-2.rds.amazonaws.com:3306";
-	$basededatos = "Test";
+	$usuario = "ednp";
+	$password = "Diseno2018";
+	$servidor = "syrus.cf58lmtunvyx.us-east-2.rds.amazonaws.com:3306";
+	$basededatos = "syrusR";
 	$date1 = $_POST['valorBusqueda'];
 	$date2 = $_POST['valorBusqueda2'];
 	$mensaje1 = "";
